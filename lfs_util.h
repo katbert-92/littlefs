@@ -34,6 +34,10 @@
 // And build littlefs with the header by defining LFS_DEFINES.
 // (-DLFS_DEFINES=my_defines.h)
 
+#include "lfs_impl.h"
+#define LFS_MALLOC(sz)  lfs_user_malloc(sz)
+#define LFS_FREE(ptr)   lfs_user_free(ptr)
+
 #ifdef LFS_DEFINES
 #include LFS_STRINGIZE(LFS_DEFINES)
 #endif
